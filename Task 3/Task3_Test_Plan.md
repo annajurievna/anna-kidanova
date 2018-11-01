@@ -15,7 +15,7 @@ The scope includes testing of the following sections:
 ### 1.2 Choosing tool for automation
 Postman was chosen as a tool to automate testing of API-playground for the following reasons:
 - I am already familiar with the tool
-- Postman is convinient for sreating test suits
+- Postman is convinient for creating test suits
 - Postman provides with test report
 
 ## 2. Testing strategy
