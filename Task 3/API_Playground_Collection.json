@@ -1,0 +1,2066 @@
+{
+	"info": {
+		"_postman_id": "8874b878-2f90-46fe-91f0-ac478c7568e5",
+		"name": "api-playground tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "GET all products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Body has correct data\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.text()).to.include(\"limit\");",
+									"    pm.expect(pm.response.text()).to.include(\"data\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET product by id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e5c7aeec-4f9f-4549-b33b-c0087503c1b6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "71e65a04-47f0-42cd-9978-22f608a3f6dd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Data is returned specifically for requested id\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"43900\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "43900",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/products/${id}?id=43900",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"products",
+								"${id}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "43900"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET product by wrong id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b77897ea-4b86-4dc3-806e-b98053286368",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/products/${id}?id=9999999999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"products",
+								"${id}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "9999999999"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all products with a specific name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Data is returned specifically for requested name\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.json().total).to.be.above(0);",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data[0].name).to.include(\"Batteries\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/products?name[$like]=*Batteries*",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "name[$like]",
+									"value": "*Batteries*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all products with a specific category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Data is returned specifically for requested category\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.json().total).to.be.above(0);",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data[0].categories[0].name).to.include(\"Alkaline Batteries\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/products?category.name=Alkaline Batteries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "category.name",
+									"value": "Alkaline Batteries"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all products in a specific category sorted by price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Data is returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.json().total).to.be.above(0);",
+									"});",
+									"",
+									"pm.test(\"All products in a selected category are sorted by price\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data[8].price).to.be.above(jsonData.data[0].price);",
+									"    pm.expect(jsonData.data[0].categories[0].name).to.include(\"Alkaline Batteries\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/products?$sort[price]=1&category.name=Alkaline Batteries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "$sort[price]",
+									"value": "1"
+								},
+								{
+									"key": "category.name",
+									"value": "Alkaline Batteries"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST to products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Body returns bad-request\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid Parameters\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST a new product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Correct product is created\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"    pm.expect(pm.response.text()).to.include(\"updatedAt\");",
+									"    pm.expect(pm.response.text()).to.include(\"createdAt\");",
+									"    pm.expect(jsonData.name).to.include(\"testProduct\");",
+									"    pm.expect(jsonData.description).to.include(\"TEST\");",
+									"    pm.expect(jsonData.upc).to.include(\"999\");",
+									"    pm.expect(jsonData.type).to.include(\"Battery\");",
+									"    pm.expect(jsonData.model).to.include(\"testModel\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testProduct\",\n\t\"description\": \"TEST\",\n\t\"upc\": \"999\",\n\t\"type\": \"Battery\",\n\t\"model\": \"testModel\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Test Product With Categories",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST a new corrupted product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Product is not created\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"should be string\");",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid Parameters\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testProduct\",\n\t\"description\": \"TEST\",\n\t\"upc\": \"999\",\n\t\"type\": \"Battery\",\n\t\"model\": 11111\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Test Product With Categories",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "GET all categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Body has correct data\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.text()).to.include(\"limit\");",
+									"    pm.expect(pm.response.text()).to.include(\"data\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET category by id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e5c7aeec-4f9f-4549-b33b-c0087503c1b6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "71e65a04-47f0-42cd-9978-22f608a3f6dd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Categories are returned specifically for requested id\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"abcat0010000\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "43900",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/categories/${id}?id=abcat0010000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"categories",
+								"${id}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "abcat0010000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET category by wrong id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b77897ea-4b86-4dc3-806e-b98053286368",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/categories/${id}?id=9z9z9z9z99z9z9z9z9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"categories",
+								"${id}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "9z9z9z9z99z9z9z9z9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all categories with a specific name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Data is returned specifically for requested name\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.json().total).to.be.above(0);",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data[0].name).to.include(\"Batteries\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/categories?name[$like]=*Batteries*",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name[$like]",
+									"value": "*Batteries*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST to categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Body returns bad-request\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid Parameters\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST a new category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Correct category is created\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"    pm.expect(pm.response.text()).to.include(\"updatedAt\");",
+									"    pm.expect(pm.response.text()).to.include(\"createdAt\");",
+									"    pm.expect(jsonData.name).to.include(\"testCategory\");",
+									"    pm.expect(jsonData.id).to.include(\"99999\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testCategory\",\n\t\"id\": \"999998\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Test Product With Categories",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST category with existing id is impossible",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Category is not created\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"id must be unique\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testCategory\",\n\t\"id\": \"99999\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Test Product With Categories",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST a new corrupted category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Category is not created\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"should have required property\");",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid Parameters\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testCategory\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Test Product With Categories",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "GET all services",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Body has correct data\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.text()).to.include(\"limit\");",
+									"    pm.expect(pm.response.text()).to.include(\"data\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET service by id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e5c7aeec-4f9f-4549-b33b-c0087503c1b6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "71e65a04-47f0-42cd-9978-22f608a3f6dd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Services are returned specifically for requested id\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"8\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "43900",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/services?id=8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"services"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET service by wrong id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b77897ea-4b86-4dc3-806e-b98053286368",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/services/${id}?id=9999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"services",
+								"${id}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "9999"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all services with a specific name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Data is returned specifically for requested name\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.json().total).to.be.above(0);",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data[0].name).to.include(\"Buy\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/services?name[$like]=*Buy*",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"services"
+							],
+							"query": [
+								{
+									"key": "name[$like]",
+									"value": "*Buy*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST to services",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Body returns bad-request\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid Parameters\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST a new service",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Correct service is created\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"    pm.expect(pm.response.text()).to.include(\"updatedAt\");",
+									"    pm.expect(pm.response.text()).to.include(\"createdAt\");",
+									"    pm.expect(jsonData.name).to.include(\"testService\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testService\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"services"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Test Product With Categories",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST a new corrupted service",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Service is not created\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"should be string\");",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid Parameters\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": 99999\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"services"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Test Product With Categories",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stores",
+			"item": [
+				{
+					"name": "GET all stores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Body has correct data\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.text()).to.include(\"limit\");",
+									"    pm.expect(pm.response.text()).to.include(\"data\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET store by id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e5c7aeec-4f9f-4549-b33b-c0087503c1b6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "71e65a04-47f0-42cd-9978-22f608a3f6dd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Stores are returned specifically for requested id\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"4\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "43900",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/stores?id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET store by wrong id ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b77897ea-4b86-4dc3-806e-b98053286368",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/stores/${id}?id=9999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"stores",
+								"${id}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "9999"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all stores with a specific name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Data is returned specifically for requested name\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.json().total).to.be.above(0);",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data[0].name).to.include(\"Minnetonka\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/stores?name[$like]=*Minnetonka*",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "name[$like]",
+									"value": "*Minnetonka*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all stores that work during specific hours on a specific day of the week",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Stores that work during specific hours on a specific day of the week are returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.json().total).to.be.above(0);",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data[0].hours).to.include(\"Sun: 10-8\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/stores?hours[$like]=*Sun: 10-8*",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "hours[$like]",
+									"value": "*Sun: 10-8*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all stores with a service by name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc3c544b-5ba0-486d-b194-5ab58107bb6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response is okay to process\", function () { ",
+									"    pm.response.to.not.be.error; ",
+									"    pm.response.to.have.jsonBody(\"\"); ",
+									"    pm.response.to.not.have.jsonBody(\"error\"); ",
+									"});",
+									"",
+									"pm.test(\"Stores with a specific service are returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"total\");",
+									"    pm.expect(pm.response.json().total).to.be.above(0);",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data[0].services[0].name).to.include(\"Geek Squad Services\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/stores?service[name]=Geek Squad Services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "service[name]",
+									"value": "Geek Squad Services"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST to stores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Body returns bad-request\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid Parameters\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3030/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST a new store",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Correct store is created\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"    pm.expect(pm.response.text()).to.include(\"updatedAt\");",
+									"    pm.expect(pm.response.text()).to.include(\"createdAt\");",
+									"    pm.expect(jsonData.name).to.include(\"testService\");",
+									"    pm.expect(jsonData.address).to.include(\"testAddress\");",
+									"    pm.expect(jsonData.city).to.include(\"ImaginaryCity\");",
+									"    pm.expect(jsonData.state).to.include(\"TEST\");",
+									"    pm.expect(jsonData.zip).to.include(\"999\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testService\",\n\t\"address\": \"testAddress\",\n\t\"city\": \"ImaginaryCity\",\n\t\"state\": \"TEST\",\n\t\"zip\": \"999\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Test Product With Categories",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST a new corrupted store",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e16020-f978-4d04-ba95-10e45ae4b754",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Store is not created\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"should be string\");",
+									"    pm.expect(pm.response.text()).to.include(\"Invalid Parameters\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"testService\",\n\t\"address\": \"testAddress\",\n\t\"city\": \"ImaginaryCity\",\n\t\"state\": \"TEST\",\n\t\"zip\": 999\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3030/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"stores"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Test Product With Categories",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get version",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "deeb2558-9004-442b-8705-f89a0d075139",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Response is okay to process\", function () { ",
+							"    pm.response.to.not.be.error; ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							"",
+							"pm.test(\"Body has correct data\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"1.1.0\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3030/version",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"version"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Healthcheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "deeb2558-9004-442b-8705-f89a0d075139",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Response is okay to process\", function () { ",
+							"    pm.response.to.not.be.error; ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							"",
+							"pm.test(\"Body has correct data\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"uptime\");",
+							"    pm.expect(pm.response.text()).to.include(\"readonly\");",
+							"    pm.expect(pm.response.text()).to.include(\"documents\");",
+							"    pm.expect(pm.response.text()).to.include(\"products\");",
+							"    pm.expect(pm.response.text()).to.include(\"stores\");",
+							"    pm.expect(pm.response.text()).to.include(\"categories\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3030/healthcheck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

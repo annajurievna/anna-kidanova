@@ -1,0 +1,2770 @@
+{
+	"id": "45eda3a0-a526-4b57-b883-91bd15dd0407",
+	"name": "api-playground tests",
+	"allTests": [],
+	"timestamp": "2018-11-01T17:07:44.056Z",
+	"collection_id": "8874b878-2f90-46fe-91f0-ac478c7568e5",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "8874b878-2f90-46fe-91f0-ac478c7568e5",
+		"name": "api-playground tests",
+		"description": null,
+		"auth": null,
+		"events": null,
+		"variables": null,
+		"order": [
+			"aeef2eb4-169d-45f6-aaba-cdd85c32e11c",
+			"39dc02fd-222e-4aee-babb-83fc01698bb5"
+		],
+		"folders_order": [
+			"17d3344c-8001-46b6-b629-02c5e5bfa5de",
+			"4ba3f26d-0f8d-4e34-b208-90330eacb0df",
+			"6d032a08-791d-41d7-828d-b025cbf036b8",
+			"2dc499bd-b26e-4440-9ed9-fd7b26ff0d89"
+		],
+		"owner": "0",
+		"permissions": {},
+		"favorite": false,
+		"shared": false,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [
+		{
+			"value": "43900",
+			"key": "id",
+			"enabled": true
+		},
+		{
+			"value": "abcat0010000",
+			"key": "id_cat",
+			"enabled": true
+		},
+		{
+			"value": "abcat0010000",
+			"key": "idcat",
+			"enabled": true
+		}
+	],
+	"results": [
+		{
+			"name": "GET all products",
+			"id": "91c31286-a393-4dfe-8517-fc2566d7f50b",
+			"url": "http://localhost:3030/products",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response time is less than 200ms": false,
+				"Response is okay to process": true,
+				"Body has correct data": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"277"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": false,
+					"Response is okay to process": true,
+					"Body has correct data": true
+				}
+			],
+			"time": "277",
+			"totalRequestTime": "277",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET product by id",
+			"id": "0e0d8bf3-e2b8-4a7c-a017-e2259448f2c1",
+			"url": "http://localhost:3030/products/${id}?id=43900",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true,
+				"Response is okay to process": true,
+				"Data is returned specifically for requested id": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"14"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true,
+					"Response is okay to process": true,
+					"Data is returned specifically for requested id": true
+				}
+			],
+			"time": "14",
+			"totalRequestTime": "14",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET product by wrong id",
+			"id": "428d8a0b-0822-4983-a519-6f37d2168f0b",
+			"url": "http://localhost:3030/products/${id}?id=9999999999",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"tests": {
+				"name": "Status code is 404",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"17"
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			],
+			"time": "17",
+			"totalRequestTime": "17",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all products with a specific name",
+			"id": "71e8eb0a-3429-4d02-89c5-e6a4226b7bc2",
+			"url": "http://localhost:3030/products?name[$like]=*Batteries*",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response is okay to process": true,
+				"Data is returned specifically for requested name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"78"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response is okay to process": true,
+					"Data is returned specifically for requested name": true
+				}
+			],
+			"time": "78",
+			"totalRequestTime": "78",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all products with a specific category",
+			"id": "301d74b4-cd97-4f84-84cc-5ad2ecd4c378",
+			"url": "http://localhost:3030/products?category.name=Alkaline Batteries",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response is okay to process": true,
+				"Data is returned specifically for requested category": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested category": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"364"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response is okay to process": true,
+					"Data is returned specifically for requested category": true
+				}
+			],
+			"time": "364",
+			"totalRequestTime": "364",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all products in a specific category sorted by price",
+			"id": "dccc6585-64b3-4127-bd87-839debb0d95e",
+			"url": "http://localhost:3030/products?$sort[price]=1&category.name=Alkaline Batteries",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response is okay to process": true,
+				"Data is returned": true,
+				"All products in a selected category are sorted by price": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned": {
+					"pass": 1,
+					"fail": 0
+				},
+				"All products in a selected category are sorted by price": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"348"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response is okay to process": true,
+					"Data is returned": true,
+					"All products in a selected category are sorted by price": true
+				}
+			],
+			"time": "348",
+			"totalRequestTime": "348",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST to products",
+			"id": "42c3932d-4472-4dc1-911f-4920f7c41fee",
+			"url": "http://localhost:3030/products",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"name": "Status code is 400",
+				"status": "pass",
+				"Body returns bad-request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body returns bad-request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"14"
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Body returns bad-request": true
+				}
+			],
+			"time": "14",
+			"totalRequestTime": "14",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST a new product",
+			"id": "5448630f-f351-488f-988c-c3112868ceda",
+			"url": "http://localhost:3030/products",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Status code is 201",
+				"status": "pass",
+				"Correct product is created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct product is created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"20"
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Correct product is created": true
+				}
+			],
+			"time": "20",
+			"totalRequestTime": "20",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST a new corrupted product",
+			"id": "36bd7539-ffbb-42a4-b1db-9b4c4fcda863",
+			"url": "http://localhost:3030/products",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"name": "Status code is 400",
+				"status": "pass",
+				"Product is not created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Product is not created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Product is not created": true
+				}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all categories",
+			"id": "c57e4adb-375d-47cc-9d41-252391c514e0",
+			"url": "http://localhost:3030/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true,
+				"Response is okay to process": true,
+				"Body has correct data": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"71"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true,
+					"Response is okay to process": true,
+					"Body has correct data": true
+				}
+			],
+			"time": "71",
+			"totalRequestTime": "71",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET category by id",
+			"id": "df50627e-754d-4de4-8726-972c3cdddac6",
+			"url": "http://localhost:3030/categories/${id}?id=abcat0010000",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true,
+				"Response is okay to process": true,
+				"Categories are returned specifically for requested id": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categories are returned specifically for requested id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"15"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true,
+					"Response is okay to process": true,
+					"Categories are returned specifically for requested id": true
+				}
+			],
+			"time": "15",
+			"totalRequestTime": "15",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET category by wrong id",
+			"id": "7ca2108e-7108-4dbb-947e-e091537c6187",
+			"url": "http://localhost:3030/categories/${id}?id=9z9z9z9z99z9z9z9z9",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"tests": {
+				"name": "Status code is 404",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"7"
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			],
+			"time": "7",
+			"totalRequestTime": "7",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all categories with a specific name",
+			"id": "362a56be-983f-4dde-b4aa-12d9119167ff",
+			"url": "http://localhost:3030/categories?name[$like]=*Batteries*",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response is okay to process": true,
+				"Data is returned specifically for requested name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"30"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response is okay to process": true,
+					"Data is returned specifically for requested name": true
+				}
+			],
+			"time": "30",
+			"totalRequestTime": "30",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST to categories",
+			"id": "9497cfef-3e02-4164-8365-692bff7785ec",
+			"url": "http://localhost:3030/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"name": "Status code is 400",
+				"status": "pass",
+				"Body returns bad-request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body returns bad-request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"13"
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Body returns bad-request": true
+				}
+			],
+			"time": "13",
+			"totalRequestTime": "13",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST a new category",
+			"id": "ae7ef3d1-5b99-46f0-beaf-7f5e9227186e",
+			"url": "http://localhost:3030/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Status code is 201",
+				"status": "pass",
+				"Correct category is created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct category is created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"18"
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Correct category is created": true
+				}
+			],
+			"time": "18",
+			"totalRequestTime": "18",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST category with existing id is impossible",
+			"id": "f29dfd17-e6ef-4fd9-8c27-1feeba1023cf",
+			"url": "http://localhost:3030/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"name": "Status code is 400",
+				"status": "pass",
+				"Category is not created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Category is not created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Category is not created": true
+				}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST a new corrupted category",
+			"id": "b051bcfe-35e7-4870-a7ce-a77d01e67e8f",
+			"url": "http://localhost:3030/categories",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"name": "Status code is 400",
+				"status": "pass",
+				"Category is not created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Category is not created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Category is not created": true
+				}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all services",
+			"id": "a6defbd0-bf72-46df-867a-f2e03d912d2e",
+			"url": "http://localhost:3030/services",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true,
+				"Response is okay to process": true,
+				"Body has correct data": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"5"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true,
+					"Response is okay to process": true,
+					"Body has correct data": true
+				}
+			],
+			"time": "5",
+			"totalRequestTime": "5",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET service by id",
+			"id": "b46fec28-2dea-46ed-80f2-6c17222528b1",
+			"url": "http://localhost:3030/services?id=8",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true,
+				"Response is okay to process": true,
+				"Services are returned specifically for requested id": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Services are returned specifically for requested id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"7"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true,
+					"Response is okay to process": true,
+					"Services are returned specifically for requested id": true
+				}
+			],
+			"time": "7",
+			"totalRequestTime": "7",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET service by wrong id",
+			"id": "65c4d7ec-ae87-44af-9abb-9ccc23a9c328",
+			"url": "http://localhost:3030/services/${id}?id=9999",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"tests": {
+				"name": "Status code is 404",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"5"
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			],
+			"time": "5",
+			"totalRequestTime": "5",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all services with a specific name",
+			"id": "605c4b17-8d7f-40af-9c00-7c286cdc7ea4",
+			"url": "http://localhost:3030/services?name[$like]=*Buy*",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response is okay to process": true,
+				"Data is returned specifically for requested name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"6"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response is okay to process": true,
+					"Data is returned specifically for requested name": true
+				}
+			],
+			"time": "6",
+			"totalRequestTime": "6",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST to services",
+			"id": "daa437a7-f865-4201-8f2b-038877f742e6",
+			"url": "http://localhost:3030/services",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"name": "Status code is 400",
+				"status": "pass",
+				"Body returns bad-request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body returns bad-request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"10"
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Body returns bad-request": true
+				}
+			],
+			"time": "10",
+			"totalRequestTime": "10",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST a new service",
+			"id": "1aa7a321-5d10-465a-93d8-72382aa4e501",
+			"url": "http://localhost:3030/services",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Status code is 201",
+				"status": "pass",
+				"Correct service is created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct service is created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"18"
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Correct service is created": true
+				}
+			],
+			"time": "18",
+			"totalRequestTime": "18",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST a new corrupted service",
+			"id": "f5b33d8f-f875-4702-afa0-b435ba55f683",
+			"url": "http://localhost:3030/services",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"name": "Status code is 400",
+				"status": "pass",
+				"Service is not created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Service is not created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Service is not created": true
+				}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all stores",
+			"id": "b9fffd74-cf59-46a9-b8c5-da32dde500e9",
+			"url": "http://localhost:3030/stores",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true,
+				"Response is okay to process": true,
+				"Body has correct data": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"32"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true,
+					"Response is okay to process": true,
+					"Body has correct data": true
+				}
+			],
+			"time": "32",
+			"totalRequestTime": "32",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET store by id",
+			"id": "c5df118a-a28a-4ab0-a018-e439ef9c1ae5",
+			"url": "http://localhost:3030/stores?id=4",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true,
+				"Response is okay to process": true,
+				"Stores are returned specifically for requested id": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Stores are returned specifically for requested id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"22"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true,
+					"Response is okay to process": true,
+					"Stores are returned specifically for requested id": true
+				}
+			],
+			"time": "22",
+			"totalRequestTime": "22",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET store by wrong id ",
+			"id": "1529f855-9246-42b1-9879-aedff3e8973d",
+			"url": "http://localhost:3030/stores/${id}?id=9999",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"tests": {
+				"name": "Status code is 404",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"8"
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			],
+			"time": "8",
+			"totalRequestTime": "8",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all stores with a specific name",
+			"id": "9f50d267-5968-4195-bc0b-f8aa911033fe",
+			"url": "http://localhost:3030/stores?name[$like]=*Minnetonka*",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response is okay to process": true,
+				"Data is returned specifically for requested name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"14"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response is okay to process": true,
+					"Data is returned specifically for requested name": true
+				}
+			],
+			"time": "14",
+			"totalRequestTime": "14",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all stores that work during specific hours on a specific day of the week",
+			"id": "45eac1cd-a883-460f-8bfa-32ae85cb8f49",
+			"url": "http://localhost:3030/stores?hours[$like]=*Sun: 10-8*",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response is okay to process": true,
+				"Stores that work during specific hours on a specific day of the week are returned": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Stores that work during specific hours on a specific day of the week are returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"39"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response is okay to process": true,
+					"Stores that work during specific hours on a specific day of the week are returned": true
+				}
+			],
+			"time": "39",
+			"totalRequestTime": "39",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET all stores with a service by name",
+			"id": "6c9c517f-71fe-4533-8ce4-5e28c3a0059d",
+			"url": "http://localhost:3030/stores?service[name]=Geek Squad Services",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response is okay to process": true,
+				"Stores with a specific service are returned": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Stores with a specific service are returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"50"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response is okay to process": true,
+					"Stores with a specific service are returned": true
+				}
+			],
+			"time": "50",
+			"totalRequestTime": "50",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST to stores",
+			"id": "445feaf8-bdca-4dbe-b94c-39ad4b492689",
+			"url": "http://localhost:3030/stores",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"name": "Status code is 400",
+				"status": "pass",
+				"Body returns bad-request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body returns bad-request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"20"
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Body returns bad-request": true
+				}
+			],
+			"time": "20",
+			"totalRequestTime": "20",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST a new store",
+			"id": "23d64710-6c60-46b6-a7e4-b7ce5eabf0ad",
+			"url": "http://localhost:3030/stores",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"name": "Status code is 201",
+				"status": "pass",
+				"Correct store is created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct store is created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"24"
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Correct store is created": true
+				}
+			],
+			"time": "24",
+			"totalRequestTime": "24",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST a new corrupted store",
+			"id": "ac1794bf-ec1e-429b-a47a-835968995d8d",
+			"url": "http://localhost:3030/stores",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"name": "Status code is 400",
+				"status": "pass",
+				"Store is not created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Store is not created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"12"
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Store is not created": true
+				}
+			],
+			"time": "12",
+			"totalRequestTime": "12",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get version",
+			"id": "aeef2eb4-169d-45f6-aaba-cdd85c32e11c",
+			"url": "http://localhost:3030/version",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true,
+				"Response is okay to process": true,
+				"Body has correct data": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"15"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true,
+					"Response is okay to process": true,
+					"Body has correct data": true
+				}
+			],
+			"time": "15",
+			"totalRequestTime": "15",
+			"iterationResults": {}
+		},
+		{
+			"name": "Healthcheck",
+			"id": "39dc02fd-222e-4aee-babb-83fc01698bb5",
+			"url": "http://localhost:3030/healthcheck",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "Status code is 200",
+				"status": "pass",
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true,
+				"Response is okay to process": true,
+				"Body has correct data": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"36"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true,
+					"Response is okay to process": true,
+					"Body has correct data": true
+				}
+			],
+			"time": "36",
+			"totalRequestTime": "36",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 112,
+	"totalFail": 1,
+	"totalTime": 1653,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "GET all products",
+			"id": "91c31286-a393-4dfe-8517-fc2566d7f50b",
+			"url": "http://localhost:3030/products",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET product by id",
+			"id": "0e0d8bf3-e2b8-4a7c-a017-e2259448f2c1",
+			"url": "http://localhost:3030/products/${id}?id=43900",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET product by wrong id",
+			"id": "428d8a0b-0822-4983-a519-6f37d2168f0b",
+			"url": "http://localhost:3030/products/${id}?id=9999999999",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all products with a specific name",
+			"id": "71e8eb0a-3429-4d02-89c5-e6a4226b7bc2",
+			"url": "http://localhost:3030/products?name[$like]=*Batteries*",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested name": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all products with a specific category",
+			"id": "301d74b4-cd97-4f84-84cc-5ad2ecd4c378",
+			"url": "http://localhost:3030/products?category.name=Alkaline Batteries",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested category": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all products in a specific category sorted by price",
+			"id": "dccc6585-64b3-4127-bd87-839debb0d95e",
+			"url": "http://localhost:3030/products?$sort[price]=1&category.name=Alkaline Batteries",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned": {
+					"pass": 1,
+					"fail": 0
+				},
+				"All products in a selected category are sorted by price": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST to products",
+			"id": "42c3932d-4472-4dc1-911f-4920f7c41fee",
+			"url": "http://localhost:3030/products",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body returns bad-request": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST a new product",
+			"id": "5448630f-f351-488f-988c-c3112868ceda",
+			"url": "http://localhost:3030/products",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct product is created": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST a new corrupted product",
+			"id": "36bd7539-ffbb-42a4-b1db-9b4c4fcda863",
+			"url": "http://localhost:3030/products",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Product is not created": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all categories",
+			"id": "c57e4adb-375d-47cc-9d41-252391c514e0",
+			"url": "http://localhost:3030/categories",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET category by id",
+			"id": "df50627e-754d-4de4-8726-972c3cdddac6",
+			"url": "http://localhost:3030/categories/${id}?id=abcat0010000",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categories are returned specifically for requested id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET category by wrong id",
+			"id": "7ca2108e-7108-4dbb-947e-e091537c6187",
+			"url": "http://localhost:3030/categories/${id}?id=9z9z9z9z99z9z9z9z9",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all categories with a specific name",
+			"id": "362a56be-983f-4dde-b4aa-12d9119167ff",
+			"url": "http://localhost:3030/categories?name[$like]=*Batteries*",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested name": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST to categories",
+			"id": "9497cfef-3e02-4164-8365-692bff7785ec",
+			"url": "http://localhost:3030/categories",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body returns bad-request": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST a new category",
+			"id": "ae7ef3d1-5b99-46f0-beaf-7f5e9227186e",
+			"url": "http://localhost:3030/categories",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct category is created": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST category with existing id is impossible",
+			"id": "f29dfd17-e6ef-4fd9-8c27-1feeba1023cf",
+			"url": "http://localhost:3030/categories",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Category is not created": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST a new corrupted category",
+			"id": "b051bcfe-35e7-4870-a7ce-a77d01e67e8f",
+			"url": "http://localhost:3030/categories",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Category is not created": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all services",
+			"id": "a6defbd0-bf72-46df-867a-f2e03d912d2e",
+			"url": "http://localhost:3030/services",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET service by id",
+			"id": "b46fec28-2dea-46ed-80f2-6c17222528b1",
+			"url": "http://localhost:3030/services?id=8",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Services are returned specifically for requested id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET service by wrong id",
+			"id": "65c4d7ec-ae87-44af-9abb-9ccc23a9c328",
+			"url": "http://localhost:3030/services/${id}?id=9999",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all services with a specific name",
+			"id": "605c4b17-8d7f-40af-9c00-7c286cdc7ea4",
+			"url": "http://localhost:3030/services?name[$like]=*Buy*",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested name": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST to services",
+			"id": "daa437a7-f865-4201-8f2b-038877f742e6",
+			"url": "http://localhost:3030/services",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body returns bad-request": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST a new service",
+			"id": "1aa7a321-5d10-465a-93d8-72382aa4e501",
+			"url": "http://localhost:3030/services",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct service is created": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST a new corrupted service",
+			"id": "f5b33d8f-f875-4702-afa0-b435ba55f683",
+			"url": "http://localhost:3030/services",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Service is not created": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all stores",
+			"id": "b9fffd74-cf59-46a9-b8c5-da32dde500e9",
+			"url": "http://localhost:3030/stores",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET store by id",
+			"id": "c5df118a-a28a-4ab0-a018-e439ef9c1ae5",
+			"url": "http://localhost:3030/stores?id=4",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Stores are returned specifically for requested id": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET store by wrong id ",
+			"id": "1529f855-9246-42b1-9879-aedff3e8973d",
+			"url": "http://localhost:3030/stores/${id}?id=9999",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all stores with a specific name",
+			"id": "9f50d267-5968-4195-bc0b-f8aa911033fe",
+			"url": "http://localhost:3030/stores?name[$like]=*Minnetonka*",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Data is returned specifically for requested name": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all stores that work during specific hours on a specific day of the week",
+			"id": "45eac1cd-a883-460f-8bfa-32ae85cb8f49",
+			"url": "http://localhost:3030/stores?hours[$like]=*Sun: 10-8*",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Stores that work during specific hours on a specific day of the week are returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "GET all stores with a service by name",
+			"id": "6c9c517f-71fe-4533-8ce4-5e28c3a0059d",
+			"url": "http://localhost:3030/stores?service[name]=Geek Squad Services",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Stores with a specific service are returned": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST to stores",
+			"id": "445feaf8-bdca-4dbe-b94c-39ad4b492689",
+			"url": "http://localhost:3030/stores",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body returns bad-request": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST a new store",
+			"id": "23d64710-6c60-46b6-a7e4-b7ce5eabf0ad",
+			"url": "http://localhost:3030/stores",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct store is created": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "POST a new corrupted store",
+			"id": "ac1794bf-ec1e-429b-a47a-835968995d8d",
+			"url": "http://localhost:3030/stores",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Store is not created": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get version",
+			"id": "aeef2eb4-169d-45f6-aaba-cdd85c32e11c",
+			"url": "http://localhost:3030/version",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Healthcheck",
+			"id": "39dc02fd-222e-4aee-babb-83fc01698bb5",
+			"url": "http://localhost:3030/healthcheck",
+			"time": "2018-11-01T17:07:44.056Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body has correct data": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}
