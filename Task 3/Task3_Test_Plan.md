@@ -114,11 +114,11 @@ Postman was chosen as a tool to automate testing of API-playground for the follo
 **Expected results:**  
 1. Request returns 200 Status code  
 2. Response time is less than 200ms  
-3. Request returns number of products in "total"  
+3. Request returns number of categories in "total"  
 4. Request returns "limit"  
-5. Request returns products in "data"   
+5. Request returns categories in "data"   
 
-**Scenario 13:** Check getting product by id  
+**Scenario 13:** Check getting category by id  
 **Type:** Automated  
 **Expected results:**  
 1. Request returns 200 Status code  
@@ -131,11 +131,11 @@ Postman was chosen as a tool to automate testing of API-playground for the follo
 1. Request returns 404 Status code  
 2. API doen't fail when id is incorrect  
 
-**Scenario 15:** Check getting product by partial product name  
+**Scenario 15:** Check getting category by partial category name  
 **Type:** Automated  
 **Expected results:**  
 1. Request returns 200 Status code  
-2. Request returns correct list of products by partial product name  
+2. Request returns correct list of products by partial category name  
 
 **Scenario 16:** Check posting to category with empty body  
 **Type:** Automated  
@@ -166,3 +166,118 @@ Postman was chosen as a tool to automate testing of API-playground for the follo
 2. Request returns message "Invalid Parameters"  
 3. Message with mistake "id must be unique" is returned in "errors" field  
 
+### 2.4 Services
+
+**Scenario 20:** Check /services request  
+**Type:** Automated   
+**Expected results:**  
+1. Request returns 200 Status code  
+2. Response time is less than 200ms  
+3. Request returns number of services in "total"  
+4. Request returns "limit"  
+5. Request returns services in "data"   
+
+**Scenario 21:** Check getting service by id  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 200 Status code  
+2. Response time is less than 200ms  
+3. Request returns correct services by id  
+
+**Scenario 22:** Check that API returns 404 for wrong service id  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 404 Status code  
+2. API doen't fail when id is incorrect  
+
+**Scenario 23:** Check getting service by partial service name  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 200 Status code  
+2. Request returns correct list of services by partial service name  
+
+**Scenario 24:** Check posting to services with empty body  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 400 Status code  
+2. Request returns message "Invalid Parameters"  
+
+**Scenario 25:** Check posting a new service  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 201 Status code  
+2. Request returns message "id"  
+3. Request returns message "updatedAt"  
+4. Request returns message "createdAt"  
+5. Sent fields are correctly set to a new service  
+
+**Scenario 26:** Check posting a new service with incorrect data  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 400 Status code  
+2. Request returns message "Invalid Parameters"  
+3. Message with mistake is returned in "errors" field  
+
+### 2.5 Stores
+
+**Scenario 27:** Check /stores request  
+**Type:** Automated   
+**Expected results:**  
+1. Request returns 200 Status code  
+2. Response time is less than 200ms  
+3. Request returns number of stores in "total"  
+4. Request returns "limit"  
+5. Request returns stores in "data"   
+
+**Scenario 28:** Check getting store by id  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 200 Status code  
+2. Response time is less than 200ms  
+3. Request returns correct stores by id  
+
+**Scenario 29:** Check that API returns 404 for wrong store id  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 404 Status code  
+2. API doen't fail when id is incorrect  
+
+**Scenario 30:** Check getting store by partial store name  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 200 Status code  
+2. Request returns correct list of stores by partial store name  
+
+**Scenario 31:** Check getting stores that work during specific hours on a specific day of the week  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 200 Status code  
+2. Request returns correct list of stores that work during specific hours on a specific day of the week  
+
+**Scenario 32:** Check getting store by service name  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 200 Status code  
+2. Request returns correct list of stores by service name  
+
+**Scenario 33:** Check posting to stores with empty body  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 400 Status code  
+2. Request returns message "Invalid Parameters"  
+
+**Scenario 34:** Check posting a new store  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 201 Status code  
+2. Request returns message "id"  
+3. Request returns message "updatedAt"  
+4. Request returns message "createdAt"  
+5. Sent fields are correctly set to a new store  
+
+**Scenario 35:** Check posting a new store with incorrect data  
+**Type:** Automated  
+**Expected results:**  
+1. Request returns 400 Status code  
+2. Request returns message "Invalid Parameters"  
+3. Message with mistake is returned in "errors" field  
