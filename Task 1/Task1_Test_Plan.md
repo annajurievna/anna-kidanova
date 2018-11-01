@@ -23,7 +23,7 @@ The scope includes the following testing types on iOS devices:
 - Localization Testing
 
 ### 1.2 Terms
-**Light user:** user that has just installed an app and has not yet done any activities inside the app such as creating new incomes and expenses, deleting and adding accounts, changing settings and etc., light user doesn't have a PRO version of an app.
+**Light user:** user that has just installed an app and has not yet done any activities inside the app such as creating new incomes and expenses, deleting and adding accounts, changing settings and etc., light user doesn't have a PRO version of an app.  
 **Heavy user:** user that has created several incomes and expenses, has done some activities with accounts, settings and etc., heavy user also ha a PRO version of an app.
 
 ## 2. Testing strategy
@@ -33,17 +33,19 @@ In this section you can find test cases that do functional checks. All functiona
 
 #### 2.1.1 Basic functionality
 
-**Scenario 1:** Hints are displayed correctly
-**Business proirity:** Low
-**Type:** Automated
-| Steps | Expected results |
-| ------ | ------ |
-| 1. Open the app under a light user | "Click to add expense" hint is displayed|
-| 2. Open the right menu | "Add an account" and "Main currency can be changed here" hints are disaplyed|
+**Scenario 1:** Hints are displayed correctly  
+**Business proirity:** Low  
+**Type:** Automated  
 
-**Scenario 2:** Right and left menus are opened and closed correctly
-**Business proirity:** High
-**Type:** Automated
+| Steps  | Expected results  |
+| ------------- | ------------- |
+| 1.Open the app under a light user  | "Click to add expense" hint is displayed  |
+| 2.Open the right menu  | "Add an account" and "Main currency can be changed here" hints are disaplyed  |
+
+**Scenario 2:** Right and left menus are opened and closed correctly  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -55,9 +57,10 @@ In this section you can find test cases that do functional checks. All functiona
 | 7. Click menu button in the top left corner |Left menu opens|
 | 8. Click menu button in the top left corner again |Left menu closes|
 
-**Scenario 3:** Piechart on a new account works correctly
-**Business proirity:** High
-**Type:** Automated
+**Scenario 3:** Piechart on a new account works correctly  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user | Empty piechart is displayed|
@@ -65,18 +68,20 @@ In this section you can find test cases that do functional checks. All functiona
 ||Expense sum = 0 is displayed in the center of a piechart in red color|
 ||Icons of all the default categories are displayed around the piechart and they are clickable|
 
-**Scenario 4:** "Balance" tab on a new account works correctly
-**Business proirity:** High
-**Type:** Automated
+**Scenario 4:** "Balance" tab on a new account works correctly  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user | Balance tab is displayed in the bottom of the screen|
 ||Balance is 0|
 ||Two three-line menu buttons are displayed from both sides from Balance tab and they are clickable|
 
-**Scenario 5:** Transfer button on a new account works correctly
-**Business proirity:** High
-**Type:** Automated
+**Scenario 5:** Transfer button on a new account works correctly  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user | Transfer button is displayed next to the right menu button|
@@ -84,9 +89,10 @@ In this section you can find test cases that do functional checks. All functiona
 |2. CLick on a Transfer button |Transfer button is clickable|
 
 
-**Scenario 6:** Income and expense buttons on a new account work correctly
-**Business proirity:** High
-**Type:** Automated
+**Scenario 6:** Income and expense buttons on a new account work correctly  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user| Green "+" and red "-" buttons are displayed in the bottom of a screen |
@@ -96,9 +102,10 @@ In this section you can find test cases that do functional checks. All functiona
 
 #### 2.1.2 Income and expense forms
 
-**Scenario 7:** Creating a simple new income
-**Business proirity:** High
-**Type:** Automated
+**Scenario 7:** Creating a simple new income  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app and click on "+" button | Form to create an income opens|
@@ -119,9 +126,10 @@ In this section you can find test cases that do functional checks. All functiona
 ||Income is added to the "Balance" tab and the sum and currency are displayed in green color|
 
 
-**Scenario 8:** Creating a simple new expense
-**Business proirity:** High
-**Type:** Automated
+**Scenario 8:** Creating a simple new expense  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app and click on "-" button | Form to create an expense opens|
@@ -142,9 +150,10 @@ In this section you can find test cases that do functional checks. All functiona
 ||A line connecting piechart with category "Bills" is displayed|
 ||Expense is added to the "Balance" tab and the sum and currency are displayed in red color|
 
-**Scenario 9:** Creating new income or expense with a note
-**Business proirity:** Middle
-**Type:** Automated
+**Scenario 9:** Creating new income or expense with a note  
+**Business proirity:** Middle  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app and click on "+" button | Form to create an income opens|
@@ -157,9 +166,10 @@ In this section you can find test cases that do functional checks. All functiona
 |8. Click on "Choose category" and select any custom category| New expense is added|
 |9. Open "Balance" tab and click on the created expensee|Note is displayed correctly|
 
-**Scenario 10:** Editing income or expense
-**Business proirity:** High
-**Type:** Automated
+**Scenario 10:** Editing income or expense  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app under a heavy user and click on "Balance" tab | Balnce tab with all the expenses and incomes opens|
@@ -178,9 +188,10 @@ In this section you can find test cases that do functional checks. All functiona
 |13. Click on "undo"|Category is switched to the previous|
 
 
-**Scenario 11:** Deleting income or expense
-**Business proirity:** High
-**Type:** Automated
+**Scenario 11:** Deleting income or expense  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app under a heavy user and click on "Balance" tab | Balnce tab with all the expenses and incomes opens|
@@ -196,9 +207,10 @@ In this section you can find test cases that do functional checks. All functiona
 ||The sum of expense has decreased by the sum of a deleted expense in the relevant category|
 |11. Open a "Balance" tab | Deleted expense is no longer displayed|
 
-**Scenario 12:** Checking boundary values in income/expense sum form
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 12:** Checking boundary values in income/expense sum form  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app and click on "-" button | Form to create an expense opens|
@@ -207,18 +219,20 @@ In this section you can find test cases that do functional checks. All functiona
 |5. Open screen with piechart |Sum is correctly displayed in piechart|
 |6. Open "Balance" tab |Sum is correctly displayed in "Balance" tab|
 
-**Scenario 13:** Calculator 
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 13:** Calculator  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app and click on "+" button | Form to create an income with calculator opens|
 ||Calculator is displayed accorsing to mockups|
 | 2. Enter the sum using calculator, use all the operations | All the buttons of calculator work and all the operations work mathematically correctly|
 
-**Scenario 14:** Canceling creating an income or an expense
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 14:** Canceling creating an income or an expense  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app to the piechart screen and click on "+" button | Form to create an income opens|
@@ -232,9 +246,10 @@ In this section you can find test cases that do functional checks. All functiona
 |7. Open "Balance" tab and click on the "-" button |Form to create an expense opens|
 ||Form is clean, fields from the previus form are not saved and displayed|
 
-**Scenario 15:** Adding new category under a light client via income/expense form
-**Business proirity:** High
-**Type:** Automated
+**Scenario 15:** Adding new category under a light client via income/expense form  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app under a light client to the piechart screen and click on "+" button | Form to create an income opens|
@@ -250,9 +265,10 @@ In this section you can find test cases that do functional checks. All functiona
 |9. Click on "Restore"|"Monefy PRO has not been purchased yet" message is displayed|
 |10. Click on "Cancel" button twice| User is returned to piechart|
 
-**Scenario 16:** Adding new category under a heavy client via income/expense form
-**Business proirity:** High
-**Type:** Automated
+**Scenario 16:** Adding new category under a heavy client via income/expense form  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app under a heavy client to the piechart screen and click on "+" button | Form to create an income opens|
@@ -267,9 +283,10 @@ In this section you can find test cases that do functional checks. All functiona
 ||Sum for a new category is displayed correctly|
 |9. Open "Balance" tab|Created income is displayed with correct icon and description|
 
-**Scenario 17:** Purchasing PRO version via income/expense form
-**Business proirity:** High
-**Type:** Manual
+**Scenario 17:** Purchasing PRO version via income/expense form  
+**Business proirity:** High  
+**Type:** Manual  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app under a light client to the piechart screen and click on "+" button | Form to create an income opens|
@@ -280,9 +297,10 @@ In this section you can find test cases that do functional checks. All functiona
 
 #### 2.1.3 Piechart
 
-**Scenario 18:** Opening a form when clicking on category icon
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 18:** Opening a form when clicking on category icon  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app under a heavy client | Piechart displayed on a screen|
@@ -290,18 +308,20 @@ In this section you can find test cases that do functional checks. All functiona
 |3. Repeat step 2 for every default and all the custom categories|Form for creating expense is opened|
 |4. Click on "Cancel" on a form|User is returned to piechart|
 
-**Scenario 19:** Percentage on a piechart is counted correctly
-**Business proirity:** High
-**Type:** Automated
+**Scenario 19:** Percentage on a piechart is counted correctly  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app under a heavy client | Piechart displayed on a screen|
 |2. Calculate percentage for any category manually and compare it to the percentage displayed in thee piechart| Percentage is displayed correctly|
 
 
-**Scenario 20:** Opening a "Balance" tab when clicking on a piechart sector
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 20:** Opening a "Balance" tab when clicking on a piechart sector  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app under a heavy client | Piechart displayed on a screen|
@@ -309,9 +329,10 @@ In this section you can find test cases that do functional checks. All functiona
 ||Operations for selected category are displayed, other operations are hidden|
 |3. Check step 2 for every default and all the custom expense categories|"Balance" tab with all the operations in the selcted category is opened|
 
-**Scenario 21:** Check the sum displayed in the piechart
-**Business proirity:** High
-**Type:** Automated
+**Scenario 21:** Check the sum displayed in the piechart  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 |1. Open the app under a heavy client | Piechart displayed on a screen|
@@ -320,9 +341,10 @@ In this section you can find test cases that do functional checks. All functiona
 
 #### 2.1.4 Balance
 
-**Scenario 22:** "Balance" tab under a light client opens and closes correctly 
-**Business proirity:** High
-**Type:** Automated
+**Scenario 22:** "Balance" tab under a light client opens and closes correctly  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light client and click on "Balance" field | "Balance" tab opens and "There are no records for this period yet" message is displayed |
@@ -332,9 +354,10 @@ In this section you can find test cases that do functional checks. All functiona
 | 5. Click on 3 lines button on the left from "Balance" field | "Balance" tab opens |
 | 6. Click on 3 lines button on the left from "Balance" field | "Balance" tab closes |
 
-**Scenario 23:** Functionality of "Balance" tab on a heavy user
-**Business proirity:** High
-**Type:** Automated
+**Scenario 23:** Functionality of "Balance" tab on a heavy user  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a heavy client and click on "Balance" field | "Balance" tab opens |
@@ -349,9 +372,10 @@ In this section you can find test cases that do functional checks. All functiona
 
 #### 2.1.5 Transfers
 
-**Scenario 24:** Creating and cancelling a new transfer
-**Business proirity:** High
-**Type:** Automated
+**Scenario 24:** Creating and cancelling a new transfer  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and click on Transfer button| "New transfer" form is displayed|
@@ -372,9 +396,10 @@ In this section you can find test cases that do functional checks. All functiona
 
 #### 2.1.6 Right menu
 
-**Scenario 25:** Opening and closing sections of the right menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 25:** Opening and closing sections of the right menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -391,9 +416,10 @@ In this section you can find test cases that do functional checks. All functiona
 |8. Click on the "Settings"|List of settings opens in the right menu|
 |9. Click on the "Settings"|List of settings closes|
 
-**Scenario 26:** Creating new account under a light user
-**Business proirity:** High
-**Type:** Automated
+**Scenario 26:** Creating new account under a light user  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -412,9 +438,10 @@ In this section you can find test cases that do functional checks. All functiona
 |13. Click on "Add" again and fill all the fields and insert initial account balance higher than zero and click on "Cancel"|Account is not saved and not disaplyed in income/expense forms, in the left menu, in transfer form, in the list of accounts in the right menu|
 |14. Click on "Add" again and fill all the fields and insert initial account balance higher than zero and click on "Add"|Account is saved and is disaplyed in income/expense forms, in the left menu, in transfer form, in the list of accounts in the right menu|
 
-**Scenario 27:** Creating new account under a heavy user
-**Business proirity:** High
-**Type:** Automated
+**Scenario 27:** Creating new account under a heavy user  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a heavy user and swipe to the left | Right menu opens|
@@ -430,9 +457,10 @@ In this section you can find test cases that do functional checks. All functiona
 |9. Insert the initial account balance | Any number from zero up to 999999999 can be inserted|
 |10. Click on "Add" button|Account is saved and is disaplyed in income/expense forms, in the left menu, in transfer form, in the list of accounts in the right menu|
 
-**Scenario 28:** Deleting an existing account
-**Business proirity:** High
-**Type:** Automated
+**Scenario 28:** Deleting an existing account  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a heavy user and swipe to the left | Right menu opens|
@@ -442,9 +470,10 @@ In this section you can find test cases that do functional checks. All functiona
 |5. Click on any account| "Edit account" form opens|
 |6. Edit all the fields and click on "Done"|Account is edited|
 
-**Scenario 29:** Adding new category under a light user using the right menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 29:** Adding new category under a light user using the right menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -454,9 +483,10 @@ In this section you can find test cases that do functional checks. All functiona
 |5. CLick on the "+" button for incomes|Suggestion to buy PRO version is opened|
 |6. Click on "Cancel"|List of categories is opened|
 
-**Scenario 30:** Adding new category under a heavy user using the right menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 30:** Adding new category under a heavy user using the right menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -464,9 +494,10 @@ In this section you can find test cases that do functional checks. All functiona
 |3. CLick on the "+" button for expenses|New category can be added and is displayed in the list of categories, in piechart and in expenses form|
 |4. CLick on the "+" button for incomes|New category can be added and is displayed in the list of categories and in the income form|
 
-**Scenario 30:** Disabling and enabling categories
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 30:** Disabling and enabling categories  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -480,9 +511,10 @@ In this section you can find test cases that do functional checks. All functiona
 ||"Undo" button is displayed|
 |9. Click on "Undo"|Category is not edited|
 
-**Scenario 31:** Merging categories
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 31:** Merging categories  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -494,9 +526,10 @@ In this section you can find test cases that do functional checks. All functiona
 ||"Undo" button is displayed|
 |7. Click on "Undo"|Category is not merged|
 
-**Scenario 32:** Editing existing categories under light user
-**Business proirity:** High
-**Type:** Automated
+**Scenario 32:** Editing existing categories under light user  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -507,9 +540,10 @@ In this section you can find test cases that do functional checks. All functiona
 |6. Change the icon|New icon is selected|
 |7. Click on "Done"|Suggestion to buy PRO version id siplayed|
 
-**Scenario 32:** Editing existing categories under heavy user
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 32:** Editing existing categories under heavy user  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menuopens|
@@ -520,18 +554,20 @@ In this section you can find test cases that do functional checks. All functiona
 |6. Change the icon|New icon is selected|
 |7. Click on "Done"|Category is modified successfully and is displayed correctly in the list of categories, in income and expense forms and in the piechart|
 
-**Scenario 33:** Currencies under a heavy account
-**Business proirity:** Mediun
-**Type:** Automated
+**Scenario 33:** Currencies under a heavy account  
+**Business proirity:** Medium    
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a heavy user and swipe to the left | Right menu opens|
 |2. Click on the "Currencies"|List of currencies opens in the right menu|
 ||New currencies can be added|
 
-**Scenario 34:** Unlocking Pro version under new accounts via right menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 34:** Unlocking Pro version under new accounts via right menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -542,18 +578,20 @@ In this section you can find test cases that do functional checks. All functiona
 ||PRO version is activated|
 
 
-**Scenario 35:** Restoring PRO version via right menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 35:** Restoring PRO version via right menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a heavy user and swipe to the left | Right menu opens|
 |2. Click on "Settings" and then on "Unlock Monefy"|Suggestion to upgrade to PRO version opens|
 |3. Click on Restore|PRO version is activated|
 
-**Scenario 36:** Switching on and off the "Carry on" function
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 36:** Switching on and off the "Carry on" function   
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -561,9 +599,10 @@ In this section you can find test cases that do functional checks. All functiona
 |3. Click on "Carry on" again|"Carry on" version is switched off and is displayed without a mark in settings menu|
 
 
-**Scenario 37:** Changing language via right menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 37:** Changing language via right menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -572,9 +611,10 @@ In this section you can find test cases that do functional checks. All functiona
 |4. Restart the application|Language is successfully changed|
 |5. Repeat steps 2-4 for every supported language|Each supported language is successfully changed|
 
-**Scenario 38:** Changing currency via right menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 38:** Changing currency via right menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -582,9 +622,10 @@ In this section you can find test cases that do functional checks. All functiona
 |3. Choose any currency|"Base currency has been changed" message is displayed|
 |4. Repeat steps 2-3 for every supported currency|Each supported currency is successfully applied|
 
-**Scenario 39:** Changing time period settings via right menu
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 39:** Changing time period settings via right menu  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -596,9 +637,10 @@ In this section you can find test cases that do functional checks. All functiona
 |7. Repeat steps 2-3 for every day of the week|Each day is successfully applied|
 
 
-**Scenario 40:** Adding passcode protection via right menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 40:** Adding passcode protection via right menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -609,27 +651,30 @@ In this section you can find test cases that do functional checks. All functiona
 ||PRO version is activated|
 |6. Click on "Settings" and then on "Passcode protection"|Passcode can be set successfully|
 
-**Scenario 41:** Leaving a review via right menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 41:** Leaving a review via right menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
 |2. Click on "Settings" and then on "Review application"|Review form in apple store or google play opens|
 
 
-**Scenario 42:** Exporting data to file via right menu
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 42:** Exporting data to file via right menu  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
 |2. Click on "Settings" and then on "Export to file"|Form to export to a file opens|
 |3. Export to a file| Export is done successfully|
 
-**Scenario 43:** Sinchronization
-**Business proirity:** Low
-**Type:** Automated
+**Scenario 43:** Sinchronization  
+**Business proirity:** Low  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -640,9 +685,10 @@ In this section you can find test cases that do functional checks. All functiona
 ||PRO version is activated|
 |6. Click on "Settings" and then on "Dropbox sync"|Dropbox sync can be done successfully|
 
-**Scenario 44:** Data backup
-**Business proirity:** High
-**Type:** Automated
+**Scenario 44:** Data backup  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -653,9 +699,10 @@ In this section you can find test cases that do functional checks. All functiona
 |6. Click on "Clear data"|Warning message is displayed|
 |7. Click on "yes"|All the data is cleared|
 
-**Scenario 45:** Reading about the app via right menu
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 45:** Reading about the app via right menu  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a light user and swipe to the left | Right menu opens|
@@ -667,9 +714,10 @@ In this section you can find test cases that do functional checks. All functiona
 
 #### 2.1.7 Left menu
 
-**Scenario 46:** Changing accounts via left menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 46:** Changing accounts via left menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a heavy user and swipe to the right | Left menu opens|
@@ -677,9 +725,10 @@ In this section you can find test cases that do functional checks. All functiona
 |3. Select any account| Piechart changes accroding to a selected account|
 |4. Repeat steps 2-3 on all the default and custom accounts| Piechart changes accroding to a selected account|
 
-**Scenario 47:** Changing time period via left menu
-**Business proirity:** High
-**Type:** Automated
+**Scenario 47:** Changing time period via left menu  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Open the app under a heavy user and swipe to the right | Left menu opens|
@@ -692,128 +741,129 @@ In this section you can find test cases that do functional checks. All functiona
 
 ### 2.2	Usability Testing
 
-**Scenario 48:** Check icons of categories on every page of an app
-**Business proirity:** Medium
-**Type:** Automated
-**Expected result:** icons of categories are displayed on every page the same way as in mockups provided by the designer
+**Scenario 48:** Check icons of categories on every page of an app  
+**Business proirity:** Medium  
+**Type:** Automated  
+**Expected result:** icons of categories are displayed on every page the same way as in mockups provided by the designer  
 
-**Scenario 49:** Check reaction of an app to wrong valuesentered in fields by the user
-**Business proirity:** Medium
-**Type:** Manual
-**Expected result:** Wrong values entered in fields by the user are highlighted in red color in the same way on all the pages
+**Scenario 49:** Check reaction of an app to wrong valuesentered in fields by the user  
+**Business proirity:** Medium  
+**Type:** Manual  
+**Expected result:** Wrong values entered in fields by the user are highlighted in red color in the same way on all the pages  
 
-**Scenario 50:** Check fonts on every page
-**Business proirity:** Medium
-**Type:** Automated
-**Expected result:** Font is the same on every page
+**Scenario 50:** Check fonts on every page  
+**Business proirity:** Medium  
+**Type:** Automated  
+**Expected result:** Font is the same on every page  
 
-**Scenario 51:** Check the way hard keys work in an app
-**Business proirity:** High
-**Type:** Manual
-**Expected result:** Hard keys such as "Home" and "Sound" are behaving while running an app in the same way as in any other iOS app
+**Scenario 51:** Check the way hard keys work in an app  
+**Business proirity:** High  
+**Type:** Manual  
+**Expected result:** Hard keys such as "Home" and "Sound" are behaving while running an app in the same way as in any other iOS app  
 
-**Scenario 52:** Check layout on all the supported screen resolutions and both orientations (portrait and landscape)
-**Business proirity:** High
-**Type:** Automated
-**Expected result:** Layout should be the same as in mockups
+**Scenario 52:** Check layout on all the supported screen resolutions and both orientations (portrait and landscape)  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** Layout should be the same as in mockups  
 
 ### 2.3	Performance Testing 
 
-**Scenario 53:** Check app's memory consumption
-**Business proirity:** High
-**Type:** Automated
-**Expected result:** Memory consumption should not be higher that in requirements
+**Scenario 53:** Check app's memory consumption  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** Memory consumption should not be higher that in requirements  
 
-**Scenario 54:** Check app's power consumption
-**Business proirity:** High
-**Type:** Automated
-**Expected result:** Power consumption should not be higher that in requirements
+**Scenario 54:** Check app's power consumption  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** Power consumption should not be higher that in requirements  
 
 #### 2.3.1 Load Testing
 
-**Scenario 55:** Checking the response time of the application to various types of requests
-**Business proirity:** High
-**Type:** Automated
-**Expected result:**  The application is working according to the requirements for the normal user load
+**Scenario 55:** Checking the response time of the application to various types of requests  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:**  The application is working according to the requirements for the normal user load  
 
 #### 2.3.2 Stress Testing 
 
-**Scenario 56:** Testing the working capacity of the application at loads exceeding the user's several times
-**Business proirity:** High
-**Type:** Automated
-**Expected result:**  The application is not crashing, correct errors are displayed to the user
+**Scenario 56:** Testing the working capacity of the application at loads exceeding the user's several times  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:**  The application is not crashing, correct errors are displayed to the user  
 
 #### 2.3.3 Interruptions testing
 
-**Scenario 57:** Check how app reacts to the incoming call
-**Business proirity:** High
-**Type:** Automated
-**Expected result:**  The application is not crashing, when user reopens app after the call it is launched from the place it was stopped without losing unsaved data
+**Scenario 57:** Check how app reacts to the incoming call  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:**  The application is not crashing, when user reopens app after the call it is launched from the place it was stopped without losing unsaved data  
 
-**Scenario 58:** Check how app reacts to the incoming SMS/MMS or message from a messanger
-**Business proirity:** High
-**Type:** Automated
-**Expected result:**  The application is not crashing, when user reopens app after looking at the message it is launched from the place it was stopped without losing unsaved data
+**Scenario 58:** Check how app reacts to the incoming SMS/MMS or message from a messanger  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:**  The application is not crashing, when user reopens app after looking at the message it is launched from the place it was stopped without losing unsaved data  
 
-**Scenario 59:** Check how app reacts to charging the device
-**Business proirity:** Medium
-**Type:** Manual
-**Expected result:**  The application is not crashing, charging the device does not effect the app in any way
+**Scenario 59:** Check how app reacts to charging the device  
+**Business proirity:** Medium  
+**Type:** Manual  
+**Expected result:**  The application is not crashing, charging the device does not effect the app in any way  
 
-**Scenario 59:** Check how app reacts to discharging the device
-**Business proirity:** Medium
-**Type:** Manual
-**Expected result:**  The application is not crashing, discharging the device does not effect the app in any way
+**Scenario 59:** Check how app reacts to discharging the device  
+**Business proirity:** Medium  
+**Type:** Manual  
+**Expected result:**  The application is not crashing, discharging the device does not effect the app in any way  
 
-**Scenario 60:** Check how app reacts to disconnecting and connecting the network/Wi-Fi
-**Business proirity:** Medium
-**Type:** Automated
-**Expected result:**  The application is not crashing, Wi-Fi, 3G and any other network connection does not effect the app in any way
+**Scenario 60:** Check how app reacts to disconnecting and connecting the network/Wi-Fi  
+**Business proirity:** Medium  
+**Type:** Automated  
+**Expected result:**  The application is not crashing, Wi-Fi, 3G and any other network connection does not effect the app in any way  
 
-**Scenario 61:** Check how app reacts to disconnecting and connecting the SD-card
-**Business proirity:** Medium
-**Type:** Manual
-**Expected result:**  The application is not crashing, Wi-Fi, correct error is displayed for the user
+**Scenario 61:** Check how app reacts to disconnecting and connecting the SD-card  
+**Business proirity:** Medium  
+**Type:** Manual  
+**Expected result:**  The application is not crashing, Wi-Fi, correct error is displayed for the user  
 
-**Scenario 62:** Check how app reacts to the "Home" button
-**Business proirity:** High
-**Type:** Manual
-**Expected result:**  The application is not crashing, user can return to the application,  when user reopens app it is launched from the place it was stopped without losing unsaved data 
+**Scenario 62:** Check how app reacts to the "Home" button  
+**Business proirity:** High  
+**Type:** Manual  
+**Expected result:**  The application is not crashing, user can return to the application,  when user reopens app it is launched from the place it was stopped without losing unsaved data  
 
-**Scenario 63:** Check how app reacts to switching between applications
-**Business proirity:** High
-**Type:** Manual
-**Expected result:**  The application is not crashing, user can return to the application,  when user reopens app it is launched from the place it was stopped without losing unsaved data 
+**Scenario 63:** Check how app reacts to switching between applications  
+**Business proirity:** Medium  
+**Type:** Manual  
+**Expected result:**  The application is not crashing, user can return to the application,  when user reopens app it is launched from the place it was stopped without losing unsaved data  
 
 #### 2.3.4 Volume Testing
 
-**Scenario 64:** Check how app reacts to user with a lot of data
-**Business proirity:** Medium
-**Type:** Automated
-**Expected result:**  The application is not crashing, user can use the application normally or the user gets correct errors
+**Scenario 64:** Check how app reacts to user with a lot of data  
+**Business proirity:** Medium  
+**Type:** Automated  
+**Expected result:**  The application is not crashing, user can use the application normally or the user gets correct errors  
 
 #### 2.3.5 Concurrency Testing
 
-**Scenario 65:** Determine the number of users who can simultaneously work with the application
-**Business proirity:** Medium
-**Type:** Automated
-**Expected result:**  The highest number of users that can simultaneously work with the application is the same or higher as told in the requirements
+**Scenario 65:** Determine the number of users who can simultaneously work with the application  
+**Business proirity:** Medium  
+**Type:** Automated  
+**Expected result:**  The highest number of users that can simultaneously work with the application is the same or higher as told in the requirements  
 
 ### 2.4	Installation & Launching Testing
 
-**Scenario 66:** Check version in apple store and google play
-**Business proirity:** High
-**Type:** Automated
-**Expected result:**  The version on apple store and google play in the latest that was released
+**Scenario 66:** Check version in apple store and google play  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:**  The version on apple store and google play in the latest that was released  
 
-**Scenario 67:** Check downloading the app from apple store and google play
-**Business proirity:** High
-**Type:** Automated
-**Expected result:**  App with the latest version can be successfully downloaded from apple store and google play
+**Scenario 67:** Check downloading the app from apple store and google play  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:**  App with the latest version can be successfully downloaded from apple store and google play  
 
-**Scenario 68:** Check installation and uninstallation of the app
-**Business proirity:** High
-**Type:** Automated
+**Scenario 68:** Check installation and uninstallation of the app  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Download the app and start the intallation process | Installation of the application should take place without significant errors|
@@ -827,40 +877,42 @@ In this section you can find test cases that do functional checks. All functiona
 ||App is no longer displayed in the list of applications installed on the device|
 ||All the files that the app had are deleted from the device|
 
-**Scenario 69:** Check installation of an app when there is a lack of memory on the device
-**Business proirity:** Medium
-**Type:** Automated
+**Scenario 69:** Check installation of an app when there is a lack of memory on the device  
+**Business proirity:** Medium  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Download the app and start the intallation process on the device that doesn't have any more memory left| Installation doesn't crush, the error saying that there is not enough memory is displayed|
 
 ### 2.5  Update Testing
 
-**Scenario 70:** Check notification about the update
-**Business proirity:** High
-**Type:** Automated
-**Expected result:** every user gets update notification 
+**Scenario 70:** Check notification about the update  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** every user gets update notification  
 
-**Scenario 71:** Check successfull update process
-**Business proirity:** High
-**Type:** Automated
-**Expected result:** All user data is saved after updates, new version installs correctly and is displayed correctly
+**Scenario 71:** Check successfull update process  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** All user data is saved after updates, new version installs correctly and is displayed correctly  
 
-**Scenario 72:** Check unsuccessfull update process (Instull corrupted version)
-**Business proirity:** High
-**Type:** Automated
-**Expected result:** If a new version is corrupted, then the app is backed up to the previous version successfully, all user data is saved
+**Scenario 72:** Check unsuccessfull update process (Instull corrupted version)  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** If a new version is corrupted, then the app is backed up to the previous version successfully, all user data is saved  
 
-**Scenario 73:** Check new updates on old supported devices
-**Business proirity:** High
-**Type:** Automated
-**Expected result:** New updates should work well on all the supported devices
+**Scenario 73:** Check new updates on old supported devices  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** New updates should work well on all the supported devices  
 
 ### 2.6 Compatibility & Backward Compatibility Testing
 
-**Scenario 74:** Check basic application functions and layouts on all the supported devices
-**Business proirity:** High
-**Type:** Automated
+**Scenario 74:** Check basic application functions and layouts on all the supported devices  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Check different device types: smartphone, tablet, etc | Installation, basic functions work well and layouts are the same as in mockups|
@@ -869,24 +921,25 @@ In this section you can find test cases that do functional checks. All functiona
 
 ### 2.7 Security Testing
 
-**Scenario 75:** Check password protection 
-**Business proirity:** High
-**Type:** Automated
-**Expected result:** If a user has set a password, it is impossible to access the app and data without enetering correct password
+**Scenario 75:** Check password protection  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** If a user has set a password, it is impossible to access the app and data without enetering correct password  
 
 ### 2.8 Stability Testing
 
-**Scenario 76:** Examine the operability of the application for long time work
-**Business proirity:** Medium
-**Type:** Automated
-**Expected result:** Under the normal load but during non-stop using of the application (till full battery dies) the app works well, there are mo errors and crashes
+**Scenario 76:** Examine the operability of the application for long time work  
+**Business proirity:** Medium  
+**Type:** Automated  
+**Expected result:** Under the normal load but during non-stop using of the application (till full battery dies) the app works well, there are mo errors and crashes  
 
 
 ### 2.9 Recovery Testing
 
-**Scenario 77:** Verify the effective recovery of the application after unforeseen crash scenarios
-**Business proirity:** High
-**Type:** Automated
+**Scenario 77:** Verify the effective recovery of the application after unforeseen crash scenarios  
+**Business proirity:** High  
+**Type:** Automated  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Start an app on a device with very low battery and use an app untill the buttery dies | App doesn't crush|
@@ -896,9 +949,10 @@ In this section you can find test cases that do functional checks. All functiona
 
 ### 2.10 Accessibility Testing
 
-**Scenario 78:** Check accessibility for people with poor sight
-**Business proirity:** Medium
-**Type:** Manual
+**Scenario 78:** Check accessibility for people with poor sight  
+**Business proirity:** Medium  
+**Type:** Manual  
+
 | Steps | Expected results |
 | ------ | ------ |
 | 1. Check the text on every page of the app |Text can be easily recognized|
@@ -906,22 +960,47 @@ In this section you can find test cases that do functional checks. All functiona
 
 ### 2.11 Localization Testing
 
-**Scenario 79:** Check that translation to all the supported languages is correct
-**Business proirity:** Medium
-**Type:** Manual (done by a linguist)
-**Expected result:** Translation to every supported language is grammatically correct and is in accordance with the theme of the application
+**Scenario 79:** Check that translation to all the supported languages is correct  
+**Business proirity:** Medium  
+**Type:** Manual (done by a linguist)  
+**Expected result:** Translation to every supported language is grammatically correct and is in accordance with the theme of the application  
 
-**Scenario 80:** Check that different time zones are supported
-**Business proirity:** Medium
-**Type:** Automated
-**Expected result:** Check that changing time zones on the device doesn't change the date displayed for every income or expanse operation
+**Scenario 80:** Check that different time zones are supported  
+**Business proirity:** Medium  
+**Type:** Automated  
+**Expected result:** Check that changing time zones on the device doesn't change the date displayed for every income or expanse operation  
 
 ### 2.12 Back-end Testing
 
-**Scenario 81:** Check that correct requests are sent and received when user is doing any actions in the app
-**Business proirity:** High
-**Type:** Automated
-**Expected result:** Check that requests are correct acccording to provided documentation
+**Scenario 81:** Check that correct requests are sent and received when user is doing any actions in the app  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** Requests are correct acccording to provided documentation
+
+**Scenario 82:** Check that correct data is sent and recieved via API    
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** Received and sent data is in correct format and is presented correctly according to Documentation and is not corrupted  
+
+**Scenario 83:** Check API responses when there is a Back-end error 
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** Understandable responses with correct errors are received when API has an error  
+
+**Scenario 84:** Check how long it takes for data to load  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** It must not take too much time while loading data  
+
+**Scenario 85:** Check number of calls from application  
+**Business proirity:** Medium  
+**Type:** Automated  
+**Expected result:** The number of calls from App under test to the server generated from app should be less   
+
+**Scenario 86:** Check application behaviur during server down time  
+**Business proirity:** High  
+**Type:** Automated  
+**Expected result:** In case of server downtime data can be saved  in the native database or correct error is displayed for the user
 
 ## 3. Automation Tools
 
