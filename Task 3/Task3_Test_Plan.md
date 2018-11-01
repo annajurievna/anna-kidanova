@@ -29,7 +29,7 @@ Postman was chosen as a tool to automate testing of API-playground for the follo
 2. Response time is less than 200ms  
 3. Version is "1.1.0"  
 
-**Scenario 2:** Checking /healthcheck request
+**Scenario 2:** Checking /healthcheck request  
 **Type:** Automated  
 **Expected results:**  
 1. Request returns 200 Status code  
